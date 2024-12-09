@@ -1,6 +1,5 @@
 import tkinter as tk
 import tkinter.messagebox as messagebox
-import numpy as np
 
 class GridDominationGUI:
     def __init__(self, game):
@@ -45,7 +44,7 @@ class GridDominationGUI:
         # Labels for scores and current player
         self.score_label = tk.Label(
             self.info_frame, 
-            text=f"Player Score: 0 | AI Score: 0", 
+            text="Player Score: 0 | AI Score: 0", 
             font=('Arial', 12)
         )
         self.score_label.pack()
@@ -89,12 +88,7 @@ class GridDominationGUI:
                 self.root.update()
                 
                 # AI move
-                if self.game.start:
-                    ai_row, ai_col = self.game.random_play()
-                    self.game.start = 0
-                else:
-                    ai_row, ai_col = self.game.best_move()
-                
+                x, ai_row, ai_col = self.game.max(self.game.grid,self.game.max_depth)
                 self.game.make_move(ai_row, ai_col)
                 
                 # Update button for AI's move (AI uses 'O' in red)
