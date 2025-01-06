@@ -407,7 +407,7 @@ class GridDominationGameAI:
                 count_empty = [p1, p2, p3].count('.')
 
                 if (count_points + count_empty == 3):
-                    weight += self.square_leverage[count_points - 1] if count_points > 0 else 0
+                    weight += self.con_leverage[count_points - 1] if count_points > 0 else 0
 
 
                 
@@ -420,7 +420,7 @@ class GridDominationGameAI:
                 count_empty = [p1, p2, p3].count('.')
 
                 if (count_points + count_empty == 3):
-                    weight += self.square_leverage[count_points - 1] if count_points > 0 else 0
+                    weight += self.con_leverage[count_points - 1] if count_points > 0 else 0
 
         return weight
 
@@ -433,7 +433,7 @@ class GridDominationGameAI:
                 count_empty = [p1, p2, p3].count('.')
 
                 if (count_points + count_empty == 3):
-                    weight += self.square_leverage[count_points - 1] if count_points > 0 else 0
+                    weight += self.diagonal_leverage[count_points - 1] if count_points > 0 else 0
 
         return weight
 
